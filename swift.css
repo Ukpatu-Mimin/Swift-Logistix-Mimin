@@ -1,0 +1,10 @@
+:root {
+      --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    html {
+      font-family: var(--font-sans);
+    }
+    code, pre, kbd, samp {
+      font-family: var(--font-mono);
+    }

@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Swift Logistix - Mimin Version</title>
+
+  <!-- Tailwind CDN (Play CDN - full features, no config needed) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="swift.css">
+
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen">
+
+  <!-- Fixed Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+
+        <!-- Logo Image -->
+        <div class="flex-shrink-0">
+          <a href="#">
+            <img src="images/swift logo.png" alt="Logo" class="h-20 w-auto">
+          </a>
+        </div>
+
+        <!-- Desktop Links - Centered -->
+       <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 space-x-10 text-lg font-medium">
+          <a href="#" class="hover:text-[#ff6a00] transition">Home</a>
+          <a href="#about" class="hover:text-[#ff6a00] transition">About</a>
+          <a href="#services" class="hover:text-[#ff6a00] transition">Services</a>
+          <a href="#contact" class="hover:text-[#ff6a00] transition">Contact</a>
+        </div>
+
+        <!-- Right Side -->
+        <div class="flex items-center gap-4">
+          <!-- Track Button - Your Orange -->
+         <a href="#track" 
+   class="hidden md:flex items-center gap-2 px-6 py-2.5 bg-[#ff6a00] text-white font-bold  hover:bg-[#e55a00] shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200">
+  <i class="fas fa-truck-fast"></i>
+  Track Shipment
+</a>
+
+   <!-- HAMBURGER BUTTON (stays visible on top) -->
+<button id="hamburger-btn" class="md:hidden z-50 fixed right 4 z-20 top-4 right-4 w-12 h-12 bg-white  shadow-lg flex items-center justify-center">
+  <span class="block absolute h-0.5 w-6 bg-gray-900 transition-all duration-300 origin-center" id="line1"></span>
+  <span class="block absolute h-0.5 w-6 bg-gray-900 transition-all duration-300 origin-center" id="line2" ></span>
+  <span class="block absolute h-0.5 w-6 bg-gray-900 transition-all duration-300 origin-center" id="line3"></span>
+</button>
+
+
+<!-- MOBILE MENU – Slides from LEFT with dark overlay -->
+<div id="mobile-menu" class="fixed inset-0 z-40 pointer-events-none">
+  <!-- Dark overlay -->
+  <div id="overlay" class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300"></div>
+  
+  <!-- Menu panel -->
+  <div id="menu-panel" class="absolute inset-y-0 left-0 w-80 bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out pointer-events-auto">
+    <div class="pt-24 pb-10 px-8 space-y-8">
+      <a href="#" class="block text-2xl font-bold hover:text-[#ff6a00] transition">Home</a>
+      <a href="#about" class="block text-2xl font-bold hover:text-[#ff6a00] transition">About</a>
+      <a href="#services" class="block text-2xl font-bold hover:text-[#ff6a00] transition">Services</a>
+      <a href="#contact" class="block text-2xl font-bold hover:text-[#ff6a00] transition">Contact</a>
+      <a href="#track" class="block text-2xl font-bold text-center py-4 bg-[#ff6a00] text-white rounded-xl hover:bg-[#e55a00]">Track Shipment</a>
+    </div>
+    </div>
+
+ 
+  </nav>
+
+
+   <!-- HERO SECTION -->
+<!-- HERO SECTION – FINAL (Stacked forever, smaller Track button) -->
+<section class="relative h-screen min-h-[700px] flex items-center justify-center text-center text-white px-6">
+  <!-- Background + Overlay -->
+  <div class="absolute inset-0 -z-10">
+    <img 
+      src="images/swift-hero.png" 
+      alt="Logistics Hero" 
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black/50"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-5xl mx-auto">
+    <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight drop-shadow-2xl">
+      SwiftLine Logistics
+    </h1>
+    
+    <h2 class="mt-6 text-2xl md:text-4xl font-bold drop-shadow-lg">
+      Moving Your World, Swiftly and Safely.
+    </h2>
+    
+    <p class="mt-8 text-lg md:text-xl font-medium text-gray-100 max-w-4xl mx-auto leading-relaxed">
+      Your trusted partner in global freight forwarding, shipping, and cargo handling.
+    </p>
+
+    <!-- STACKED BUTTONS – Always vertical, even on desktop -->
+    <div class="mt-16 flex flex-col items-center gap-8 max-w-3xl mx-auto">
+
+      <!-- Smaller Transparent Track Shipment Button -->
+      <a href="#track" 
+         class="px-10 py-3 border-2 border-[#fff] text-[#fff] font-bold text-lg  hover:bg-[#ff6a00] hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+        Track Shipment
+      </a>
+
+     <div class="w-full max-w-3xl shadow-2xl shadow-2xl tracking-bar overflow-hidden flex">
+        <input type="text"
+               placeholder="Enter Tracking ID..."
+               class="flex-1 px-8 py-5 text-gray-800 text-lg outline-none bg-white font-medium">
+        <button class="px-10 bg-[#ff6a00] hover:bg-[#e55a00] transition">
+          <i class="fas fa-search text-2xl text-white"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+<!-- WHO WE ARE SECTION – Matches your screenshot perfectly -->
+<section class="py-20 lg:py-32 bg-gray-50" id="about">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Left: Image with big rounded corners -->
+      <div class="order-2 lg:order-1">
+        <img 
+          src="/images/about swift.png" 
+          alt="SwiftLine Warehouse" 
+          class="w-full object-cover  shadow-2xl"
+        >
+      </div>
+
+      <!-- Right: Text content -->
+      <div class="order-1 lg:order-2 text-left lg:text-left">
+        <h2 class="text-5xl lg:text-7xl font-black text-gray-900 mb-8">
+          Who We Are
+        </h2>
+        
+        <p class="text-lg lg:text-xl text-gray-700 leading-relaxed mb-6">
+          At SwiftLine Logistics, we specialize in seamless transportation solutions connecting air, sea, and land routes across the globe. With a focus on reliability, speed, and customer satisfaction, we deliver excellence in every shipment.
+        </p>
+        
+        <p class="text-lg lg:text-xl text-gray-700 leading-relaxed">
+          Our experienced team and state-of-the-art facilities ensure your cargo reaches its destination safely and on time, every time.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- OUR SERVICES SECTION – Your EXACT card design -->
+<section class="py-20 lg:py-28 bg-white" id="services">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+    <h2 class="text-6xl lg:text-6xl font-black text-gray-900 mb-4">Our Services</h2>
+    <p class="text-xl text-gray-600 mb-16">Comprehensive logistics solutions tailored to your business needs</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+
+      <!-- CARD 1: Air Freight -->
+      <div class="relative group cursor-pointer  overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+        <img alt="Air Freight"
+             class="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-700 group-hover:scale-105"
+             src="images/air swift.png">
+        <div class="absolute inset-0 bg-black/50"></div>
+        
+        <div class="absolute inset-0 flex flex-col justify-end p-8 text-left">
+          <h3 class="text-2xl md:text-3xl font-bold text-white mb-3 drop-shadow-lg">Air Freight</h3>
+          <p class="text-white/90 mb-6 text-sm md:text-base leading-relaxed">
+            Fast and secure global air cargo solutions for time-sensitive shipments.
+          </p>
+          <button class="inline-flex items-center gap-2 text-[#fff] font-bold text-lg hover:gap-4 transition-all duration-300">
+            Learn More
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                 class="transition-transform duration-300 group-hover:translate-x-2">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- CARD 2: Sea Freight -->
+      <div class="relative group cursor-pointer rounded-1xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+        <img alt="Sea Freight"
+             class="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-700 group-hover:scale-105"
+             src="images/sea swift.png">
+        <div class="absolute inset-0 bg-black/50"></div>
+        
+        <div class="absolute inset-0 flex flex-col justify-end p-8 text-left">
+          <h3 class="text-2xl md:text-3xl font-bold text-white mb-3 drop-shadow-lg">Sea Freight</h3>
+          <p class="text-white/90 mb-6 text-sm md:text-base leading-relaxed">
+            Efficient ocean transport for bulk goods with competitive rates.
+          </p>
+          <button class="inline-flex items-center gap-2 text-[#fff] font-bold text-lg hover:gap-4 transition-all duration-300">
+            Learn More
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                 class="transition-transform duration-300 group-hover:translate-x-2">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- CARD 3: Road Transport -->
+      <div class="relative group cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+        <img alt="Road Transport"
+             class="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-700 group-hover:scale-105"
+             src="images/road swift.png">
+        <div class="absolute inset-0 bg-black/50"></div>
+        
+        <div class="absolute inset-0 flex flex-col justify-end p-8 text-left">
+          <h3 class="text-2xl md:text-3xl font-bold text-white mb-3 drop-shadow-lg">Road Transport</h3>
+          <p class="text-white/90 mb-6 text-sm md:text-base leading-relaxed">
+            Reliable inland logistics and last-mile delivery services.
+          </p>
+          <button class="inline-flex items-center gap-2 text-[#fff] font-bold text-lg hover:gap-4 transition-all duration-300">
+            Learn More
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                 class="transition-transform duration-300 group-hover:translate-x-2">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- CARD 4: Warehousing -->
+      <div class="relative group cursor-pointer  overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+        <img alt="Warehousing"
+             class="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-700 group-hover:scale-105"
+             src="images/warehouse swift.png">
+        <div class="absolute inset-0 bg-black/50"></div>
+        
+        <div class="absolute inset-0 flex flex-col justify-end p-8 text-left">
+          <h3 class="text-2xl md:text-3xl font-bold text-white mb-3 drop-shadow-lg">Warehousing</h3>
+          <p class="text-white/90 mb-6 text-sm md:text-base leading-relaxed">
+            Safe and scalable storage solutions for your inventory needs.
+          </p>
+          <button class="inline-flex items-center gap-2 text-[#fff] font-bold text-lg hover:gap-4 transition-all duration-300">
+            Learn More
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                 class="transition-transform duration-300 group-hover:translate-x-2">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US SECTION – Exact match -->
+<section class="py-20 lg:py-28 bg-gray-100">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+    <!-- Heading -->
+    <h2 class="text-4xl lg:text-6xl font-black text-gray-900 mb-4">
+      Why Choose SwiftLine
+    </h2>
+    <p class="text-xl text-gray-600 mb-16 max-w-3xl mx-auto">
+      Experience the difference with our commitment to excellence
+    </p>
+
+    <!-- Features Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <!-- Card 1 -->
+      <div class="bg-white rounded-3xl p-10 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+        <div class="w-20 h-20 mx-auto mb-6 bg-orange-100 rounded-full flex items-center justify-center">
+          <i class="fas fa-globe text-4xl text-[#ff6a00]"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-3">Global Reach</h3>
+        <p class="text-gray-600 leading-relaxed">
+          Serving clients in over 40 countries worldwide.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white rounded-3xl p-10 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+        <div class="w-20 h-20 mx-auto mb-6 bg-orange-100 rounded-full flex items-center justify-center">
+          <i class="fas fa-bolt text-4xl text-[#ff6a00]"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-3">Swift Delivery</h3>
+        <p class="text-gray-600 leading-relaxed">
+          Guaranteed on-time arrivals for all shipments.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white rounded-3xl p-10 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+        <div class="w-20 h-20 mx-auto mb-6 bg-orange-100 rounded-full flex items-center justify-center">
+          <i class="fas fa-box-open text-4xl text-[#ff6a00]"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-3">Real-Time Tracking</h3>
+        <p class="text-gray-600 leading-relaxed">
+          Track every step of your shipment journey.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-white rounded-3xl p-10 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+        <div class="w-20 h-20 mx-auto mb-6 bg-orange-100 rounded-full flex items-center justify-center">
+          <i class="fas fa-headset text-4xl text-[#ff6a00]"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-3">24/7 Support</h3>
+        <p class="text-gray-600 leading-relaxed">
+          Always ready to assist you, anytime, anywhere.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS SECTION – Exact match to your screenshot -->
+<section class="py-20 lg:py-28 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+    <!-- Heading -->
+    <h2 class="text-4xl lg:text-6xl font-black text-gray-900 mb-4">
+      What Our Clients Say
+    </h2>
+    <p class="text-xl text-gray-600 mb-16 max-w-3xl mx-auto">
+      Trusted by businesses worldwide for exceptional logistics services
+    </p>
+
+    <!-- Testimonials Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <!-- Testimonial 1 -->
+      <div class="bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+        <div class="text-4xl text-[#ff6a00] mb-4">★★★★★</div>
+        <p class="text-gray-700 text-lg leading-relaxed mb-8 italic">
+          “SwiftLine delivered our shipment two days early — incredible service! Their team went above and beyond to ensure everything arrived safely.”
+        </p>
+        <div class="border-t border-gray-200 pt-6">
+          <p class="font-bold text-gray-900">Sarah Johnson</p>
+          <p class="text-[#ff6a00] font-medium">Operations Manager</p>
+          <p class="text-sm text-gray-600">TechCorp Industries</p>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+        <div class="text-4xl text-[#ff6a00] mb-4">★★★★★</div>
+        <p class="text-gray-700 text-lg leading-relaxed mb-8 italic">
+          “Professional, reliable, and always on time. SwiftLine has become our go-to logistics partner for all international shipments.”
+        </p>
+        <div class="border-t border-gray-200 pt-6">
+          <p class="font-bold text-gray-900">Michael Chen</p>
+          <p class="text-[#ff6a00] font-medium">Supply Chain Director</p>
+          <p class="text-sm text-gray-600">Global Manufacturing Co.</p>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+        <div class="text-4xl text-[#ff6a00] mb-4">★★★★★</div>
+        <p class="text-gray-700 text-lg leading-relaxed mb-8 italic">
+          “The real-time tracking and 24/7 support make SwiftLine stand out. We can always count on them for our critical deliveries.”
+        </p>
+        <div class="border-t border-gray-200 pt-6">
+          <p class="font-bold text-gray-900">Emma Williams</p>
+          <p class="text-[#ff6a00] font-medium">CEO</p>
+          <p class="text-sm text-gray-600">RetailPro Solutions</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA SECTION – "Ready to Ship with Confidence?" -->
+<section class="relative py-32 lg:py-48 text-center text-white overflow-hidden">
+  <!-- Background Image -->
+  <div class="absolute inset-0 -z-10">
+    <img 
+      src="images/CTA swiftline.png" 
+      alt="Ready to Ship" 
+      class="w-full h-full object-cover"
+    />
+    <!-- Dark overlay for perfect text contrast -->
+    <div class="absolute inset-0 bg-black/60"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative max-w-5xl mx-auto px-6">
+    <h2 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-8 drop-shadow-2xl">
+      Ready to Ship with Confidence?
+    </h2>
+    
+    <p class="text-xl md:text-2xl lg:text-3xl font-medium mb-16 max-w-4xl mx-auto leading-relaxed drop-shadow-lg">
+      Join thousands of satisfied clients who trust SwiftLine Logistics<br>for their global shipping needs
+    </p>
+
+    <!-- Buttons – Stacked on mobile, side-by-side on desktop -->
+    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+      <!-- Orange Track Button -->
+      <a href="#track" 
+         class="px-12 py-5 bg-[#ff6a00] hover:bg-[#e55a00] text-white font-bold text-xl rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+        Track
+      </a>
+
+      <!-- White Outline Contact Button -->
+      <a href="#contact" 
+         class="px-12 py-5 border-4 border-white text-white font-bold text-xl rounded-xl hover:bg-white hover:text-gray-900 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105">
+        Contact Sales
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GET IN TOUCH / CONTACT SECTION -->
+<section class="py-20 lg:py-28 bg-gray-50" id="contact">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <!-- Heading -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl lg:text-6xl font-black text-gray-900 mb-4">
+        Get in Touch
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Have questions about our services? Our team is ready to help you with your logistics needs.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+
+      <!-- Left: Contact Information -->
+      <div class="space-y-10">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Contact Information</h3>
+          <p class="text-gray-600 mb-8">
+            Reach out to us through any of these channels, and we'll respond promptly.
+          </p>
+
+          <!-- Phone -->
+          <div class="flex items-start gap-4 mb-6">
+            <i class="fas fa-phone text-[#ff6a00] text-2xl mt-1"></i>
+            <div>
+              <p class="font-bold text-gray-900">Phone</p>
+              <p class="text-gray-700">+1 (405) 541-3134</p>
+              <p class="text-sm text-gray-500">Mon–Fri 9am–6pm EST</p>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="flex items-start gap-4">
+            <i class="fas fa-envelope text-[#ff6a00] text-2xl mt-1"></i>
+            <div>
+              <p class="font-bold text-gray-900">Email</p>
+              <p class="text-gray-700">contact@swiftlinelogistix.com</p>
+              <p class="text-sm text-gray-500">We'll respond within 24 hours</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Contact Form -->
+      <div class="bg-white rounded-3xl shadow-xl p-8 lg:p-10">
+        <form action="#" class="space-y-6">
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">Full Name *</label>
+            <input type="text" required placeholder="John Doe"
+                   class="w-full px-5 py-4 border border-gray-300 rounded-xl focus:outline-none focus:border-[#ff6a00] transition">
+          </div>
+
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">Email Address *</label>
+            <input type="email" required placeholder="john@example.com"
+                   class="w-full px-5 py-4 border border-gray-300 rounded-xl focus:outline-none focus:border-[#ff6a00] transition">
+          </div>
+
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">Phone Number</label>
+            <input type="tel" placeholder="+1 (405) 541-3134"
+                   class="w-full px-5 py-4 border border-gray-300 rounded-xl focus:outline-none focus:border-[#ff6a00] transition">
+          </div>
+
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">Message *</label>
+            <textarea rows="5" required placeholder="Tell us about your shipping needs..."
+                      class="w-full px-5 py-4 border border-gray-300 rounded-xl focus:outline-none focus:border-[#ff6a00] transition resize-none"></textarea>
+          </div>
+
+          <button type="submit"
+                  class="w-full py-5 bg-purple-600 hover:bg-purple-700 text-white font-bold text-xl rounded-xl transition-all duration-300 hover:shadow-lg">
+            Send Message
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ SECTION – Clean collapsible accordion -->
+<section class="py-20 lg:py-28 bg-white">
+  <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+    <!-- Heading -->
+    <h2 class="text-4xl lg:text-6xl font-black text-gray-900 mb-4">
+      Frequently Asked Questions
+    </h2>
+    <p class="text-xl text-gray-600 mb-16">
+      Answers to common queries about our services and operations
+    </p>
+
+    <!-- Accordion -->
+    <div class="space-y-6">
+
+      <!-- FAQ Item 1 -->
+      <details class="group bg-gray-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        <summary class="flex justify-between items-center p-6 text-lg font-semibold text-gray-800 cursor-pointer list-none">
+          <span>What countries does SwiftLine Logistics deliver to?</span>
+          <i class="fas fa-chevron-down text-[#ff6a00] text-xl group-open:rotate-180 transition-transform duration-300"></i>
+        </summary>
+        <div class="px-6 pb-6 text-gray-600 leading-relaxed">
+          We deliver to over 180 countries worldwide via our extensive air, sea, and land freight network. Contact our team for specific destination availability.
+        </div>
+      </details>
+
+      <!-- FAQ Item 2 -->
+      <details class="group bg-gray-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        <summary class="flex justify-between items-center p-6 text-lg font-semibold text-gray-800 cursor-pointer list-none">
+          <span>How can I track my shipment?</span>
+          <i class="fas fa-chevron-down text-[#ff6a00] text-xl group-open:rotate-180 transition-transform duration-300"></i>
+        </summary>
+        <div class="px-6 pb-6 text-gray-600 leading-relaxed">
+          Use the "Track Shipment" button in the top navigation or hero section. Simply enter your tracking ID to see real-time updates on your shipment status.
+        </div>
+      </details>
+
+      <!-- FAQ Item 3 -->
+      <details class="group bg-gray-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        <summary class="flex justify-between items-center p-6 text-lg font-semibold text-gray-800 cursor-pointer list-none">
+          <span>What are your shipping rates?</span>
+          <i class="fas fa-chevron-down text-[#ff6a00] text-xl group-open:rotate-180 transition-transform duration-300"></i>
+        </summary>
+        <div class="px-6 pb-6 text-gray-600 leading-relaxed">
+          Rates vary by weight, dimensions, origin, destination, and service type. Contact our sales team for a custom quote — we offer highly competitive pricing.
+        </div>
+      </details>
+
+      <!-- FAQ Item 4 -->
+      <details class="group bg-gray-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        <summary class="flex justify-between items-center p-6 text-lg font-semibold text-gray-800 cursor-pointer list-none">
+          <span>Do you offer 24/7 customer support?</span>
+          <i class="fas fa-chevron-down text-[#ff6a00] text-xl group-open:rotate-180 transition-transform duration-300"></i>
+        </summary>
+        <div class="px-6 pb-6 text-gray-600 leading-relaxed">
+          Yes! Our support team is available 24 hours a day, 7 days a week via phone, email, and live chat to assist with any shipment concerns.
+        </div>
+      </details>
+
+      <!-- FAQ Item 5 -->
+      <details class="group bg-gray-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        <summary class="flex justify-between items-center p-6 text-lg font-semibold text-gray-800 cursor-pointer list-none">
+          <span>Can I change my shipment details after booking?</span>
+          <i class="fas fa-chevron-down text-[#ff6a00] text-xl group-open:rotate-180 transition-transform duration-300"></i>
+        </summary>
+        <div class="px-6 pb-6 text-gray-600 leading-relaxed">
+          Minor changes (like delivery notes) can usually be updated. Major changes may incur fees. Contact support immediately if you need modifications.
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- DARK FOOTER – Final piece -->
+<footer class="bg-gray-900 text-gray-300 py-16">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+
+      <!-- Column 1: Logo + Description -->
+      <div>
+        <img src="images/swift logo.png" alt="SwiftLine Logistics" class="h-12 mb-6">
+        <p class="text-gray-400 leading-relaxed">
+          SwiftLine Logistics is your trusted partner in global freight forwarding, shipping, and cargo handling.
+        </p>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div>
+        <h3 class="text-white font-bold text-lg mb-6">Quick Links</h3>
+        <ul class="space-y-3">
+          <li><a href="#" class="hover:text-[#ff6a00] transition">Home</a></li>
+          <li><a href="#about" class="hover:text-[#ff6a00] transition">About</a></li>
+          <li><a href="#services" class="hover:text-[#ff6a00] transition">Services</a></li>
+          <li><a href="#track" class="hover:text-[#ff6a00] transition">Tracking</a></li>
+          <li><a href="#contact" class="hover:text-[#ff6a00] transition">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Contact Info -->
+      <div>
+        <h3 class="text-white font-bold text-lg mb-6">Contact Us</h3>
+        <div class="space-y-4 text-gray-400">
+          <p>123 Logistics Ave, Suite 500,<br>New York, NY</p>
+          <p>Phone: <a href="tel:+14055413134" class="hover:text-[#ff6a00] transition">+1 (405) 541-3134</a></p>
+          <p>Email: <a href="mailto:contact@swiftlinelogistix.com" class="hover:text-[#ff6a00] transition">contact@swiftlinelogistix.com</a></p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FINAL FLOATING SUPPORT BUBBLE + LIVE CHAT (PERFECT) -->
+<div class="fixed bottom-6 right-6 z-50">
+  <!-- Main Orange Floating Button -->
+  <button id="support-toggle" class="relative w-16 h-16 bg-[#ff6a00] hover:bg-[#e55a00] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-all duration-300">
+    <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+    </svg>
+    <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full animate-ping opacity-75"></span>
+    <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full"></span>
+  </button>
+
+  <!-- Support Options Card -->
+  <div id="support-card" class="absolute bottom-20 right-0 w-96 bg-white rounded-3xl shadow-2xl overflow-hidden opacity-0 scale-90 pointer-events-none transition-all duration-300">
+    <div class="p-6 bg-white border-b border-gray-100">
+      <div class="flex justify-between items-center mb-3">
+        <h3 class="text-xl font-bold text-gray-900">Contact Support</h3>
+        <button id="support-close" class="text-gray-400 hover:text-gray-700">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <p class="text-sm text-gray-600">Choose how you'd like to reach us</p>
+    </div>
+
+    <div class="py-3 bg-gray-50">
+      <!-- LIVE CHAT -->
+      <button id="open-live-chat" class="w-full flex items-center gap-4 px-6 py-4 hover:bg-orange-100 transition">
+        <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center shadow-md">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+        </div>
+        <div class="text-left">
+          <div class="font-semibold text-gray-900">Live Chat</div>
+          <div class="text-xs text-gray-500">Start chatting now</div>
+        </div>
+      </button>
+
+      <!-- WHATSAPP -->
+      <a href="https://wa.me/14055413134" target="_blank" class="w-full flex items-center gap-4 px-6 py-4 hover:bg-green-100 transition">
+        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-md">
+          <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.5 3.5z"/></svg>
+        </div>
+        <div class="text-left">
+          <div class="font-semibold text-gray-900">WhatsApp</div>
+          <div class="text-xs text-gray-500">Message us directly</div>
+        </div>
+      </a>
+
+      <!-- TELEGRAM -->
+      <a href="https://t.me/swiftline_support" target="_blank" class="w-full flex items-center gap-4 px-6 py-4 hover:bg-blue-100 transition">
+        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center shadow-md">
+          <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 11.944 0zm4.962 7.224c.1-.002.321.023.465.14a.5.5 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.359 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </div>
+        <div class="text-left">
+          <div class="font-semibold text-gray-900">Telegram</div>
+          <div class="text-xs text-gray-500">Fast & secure messaging</div>
+        </div>
+      </a>
+
+      <!-- EMAIL -->
+      <a href="mailto:contact@swiftlinelogistix.com" class="w-full flex items-center gap-4 px-6 py-4 hover:bg-yellow-100 transition">
+        <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center shadow-md">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <div class="text-left">
+          <div class="font-semibold text-gray-900">Email</div>
+          <div class="text-xs text-gray-500">contact@swiftlinelogistix.com</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- FULL LIVE CHAT WIDGET -->
+  <div id="live-chat" class="fixed bottom-20 right-6 w-96 bg-white rounded-2xl shadow-2xl overflow-hidden opacity-0 scale-95 pointer-events-none transition-all duration-300 z-50">
+    <div class="bg-[#ff6a00] text-white p-5 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8h5z"/></svg>
+        </div>
+        <div>
+          <h3 class="font-bold">Live Chat</h3>
+          <p class="text-sm opacity-90">We typically reply in minutes</p>
+        </div>
+      </div>
+      <button id="chat-close" class="hover:bg-white/20 rounded-full p-1">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div id="chat-messages" class="h-96 p-6 space-y-4 overflow-y-auto bg-gray-50">
+      <div class="flex justify-start">
+        <div class="bg-white text-black rounded-2xl px-5 py-3 max-w-xs shadow">Hello! How can we help you today?</div>
+      </div>
+    </div>
+    <div class="p-4 bg-white border-t">
+      <div class="flex gap-2">
+        <input id="chat-input" type="text" placeholder="Type your message..." class="flex-1 px-4 py-3 rounded-xl border focus:outline-none focus:border-[#ff6a00] text-black">
+        <button id="send-btn" class="px-6 bg-[#ff6a00] text-white rounded-xl hover:bg-[#e55a00] transition font-medium">Send</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Copyright -->
+    <div class="border-t border-gray-800 mt-12 pt-5 text-center text-gray-500 text-sm">
+      © 2025 SwiftLine Logistics. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script type="module" src="swift.js"></script>
+</html>
