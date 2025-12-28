@@ -3,8 +3,8 @@
 A clean, responsive  web replica of a modern Nigerian logistics and delivery platform (inspired by services like Swift Logistix).  
 This project demonstrates strong frontend skills with HTML5, CSS3, Tailwind CSS, and JavaScript — perfect for fast-loading, mobile-first delivery/errand service websites.
 
-🚀 **Live Demo**: [https://swift-logistix-mimin.vercel.app](https://swift-logistix-mimin.vercel.app)  
-*(Update this link once your Vercel deployment is live!)*
+🚀 **Live Demo**: https://vercel.com/ukpatu-mimins-projects?repo=https://github.com/Ukpatu-Mimin/Swift-Logistix-Mimin
+
 
 Key Features
 - Modern hero section with tracking search input & call-to-action
